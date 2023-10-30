@@ -134,6 +134,31 @@ def generer_boisson_avec_alcool_aleatoire() -> str:
            
     i = randint(0, len(liste_boisson_avec_alcool) -1)
     print(f"Bijour Monsieur voila ta boisson avec alcool(mais pas trop chef, c'est pas cool. Comment ça l'alcool c'est pas cool ?) : {liste_boisson_avec_alcool[i]}")
+
+
+#partie avec ingrediens choisies
+
+def saisie_ingrediens() -> list[str]:
+    """
+    Demande a l'utilisateur de choisir une liste d'ingrediens
+    """
+    liste_ingrediens = []
+    ingredien = ""
+    flag = False
+    while flag == False:
+        ingredien = input("Saisissez vos ingrédients (hop hop hop on se dépéche) : ")
+        liste_ingrediens.append(ingredien)
+        if ingredien.lower() == "stop":
+            print("Arrêt de la saisie des ingrédiens")
+            liste_ingrediens.pop()
+            break 
+        print(f"Ajout de {ingredien} dans la recette, merci de taper stop pour arreter la saisie")
+    return liste_ingrediens
+def plat_avec_ingredients(liste_ingredien: list[str] ) -> str:
+    """
+    Renvoie un plat qui contient tout les ingrédiens demandés par l'utilisateur 
+    """
+
 #############################################################################################################################################################################
 #Main
 if __name__ == '__main__':
@@ -158,12 +183,9 @@ if __name__ == '__main__':
             generer_boisson_avec_alcool_aleatoire()
             
         elif choix == 6:
-            print("moi quand une femme me dit bonjour : 😳")
+            saisie_ingrediens()
+            #print("moi quand une femme me dit bonjour : 😳")
     
         #condition de sortie
         flag = True
         
-
-        
-
-    
